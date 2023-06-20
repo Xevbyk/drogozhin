@@ -1,0 +1,66 @@
+#8  
+def better_than_average(class_points, your_points):
+    return your_points > sum(class_points) / len(class_points)
+#8
+def mul_by_n(lst, n):
+    new_lst = []
+    for i in lst:
+        new_lst.append(i * n)
+    return new_lst
+lst = [1, 2, 3]
+n = 4
+result_lst = mul_by_n(lst, n)
+print(result_lst)
+#7
+def filter_list(lst):
+    return [i for i in lst if type(i) == int]
+#7
+def is_square(n):    
+    return True if n > -1 and n ** 0.5 == int(n ** 0.5) else False
+#6
+def find_it(seq):
+    return min([n for n in seq if seq.count(n) % 2 != 0])
+#6
+def title_case(title, minor_words=''):
+    words = []
+    for w in title.split():
+        if w.lower() not in minor_words.lower().split() or len(words) == 0:
+            words.append(w.title())
+        else:
+            words.append(w.lower())
+    return " ".join(words)
+#6
+def is_pangram(text):
+    alphabet = set('abcdefghijklmnopqrstuvwxyz')
+    letters = set(filter(str.isalpha, text.lower()))
+    return letters == alphabet
+#6 
+def sum_digs_pow(n, p):
+    s = 0
+    str_n = str(n)
+    for i in range(len(str_n)):
+        s += int(str_n[i]) ** (p+i)
+    return s
+
+def dig_pow(n, p):
+    s = sum_digs_pow(n, p)
+    if s % n == 0:
+        return s // n
+    else:
+        return -1
+#6
+def array_diff(a, b):
+    return [x for x in a if x not in b]
+a = [1, 2, 3, 4, 5]
+b = [3, 4, 6]
+c = array_diff(a, b)
+print(c) 
+#5
+def perimeter(n):
+    if n == 0:
+        return 4
+    else:
+        fib = [1, 1]
+        for i in range(n-1):
+            fib.append(fib[-1] + fib[-2])
+        return 4 * sum(fib)
